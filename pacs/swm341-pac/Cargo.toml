@@ -1,0 +1,21 @@
+[package]
+name = "swm341-pac"
+description = "Peripheral Access Crate for Synwit's swm341 microcontroller"
+documentation = "https://docs.rs/swm341-pac"
+version.workspace = true
+edition.workspace = true
+keywords.workspace = true
+license.workspace = true
+repository.workspace = true
+readme.workspace = true
+
+[dependencies]
+cortex-m.workspace = true
+vcell.workspace = true
+
+[dependencies.cortex-m-rt]
+optional = true
+workspace = true
+
+[features]
+rt = ["cortex-m-rt/device"]
