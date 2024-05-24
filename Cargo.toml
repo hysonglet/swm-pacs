@@ -4,7 +4,7 @@ default-members = ["xtask"]
 
 [workspace.package]
 name = "swm-pacs"
-version = "0.1.0"
+version = "0.2.0"
 keywords = ["no-std", "arm", "cortex-m", "swm", "synwit", "peripherals"]
 license = "0BSD"
 repository = "https://github.com/hysonglet/swm-pacs"
