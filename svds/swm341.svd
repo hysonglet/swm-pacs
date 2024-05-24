@@ -8,9 +8,9 @@
     <endian>little</endian>
     <revision>r1p0</revision>
     <nvicPrioBits>2</nvicPrioBits>
-        <fpuPresent>true</fpuPresent>
-        <mpuPresent>true</mpuPresent>
-        <vendorSystickConfig>false</vendorSystickConfig>
+    <fpuPresent>true</fpuPresent>
+    <mpuPresent>true</mpuPresent>
+    <vendorSystickConfig>false</vendorSystickConfig>
   </cpu>
   <addressUnitBits>8</addressUnitBits>
   <width>32</width>
@@ -29,6 +29,11 @@
         <size>0x0AA09C</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>BOD</name>
+        <description>BOD global interrupt</description>
+        <value>24</value>
+      </interrupt>
       <registers>
         <register>
           <name>CLKSEL</name>
@@ -3773,6 +3778,11 @@
         <size>0x000034</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>TIMR0</name>
+        <description>TIMR0 global interrupt</description>
+        <value>2</value>
+      </interrupt>
       <registers>
         <register>
           <name>LOAD</name>
@@ -3964,14 +3974,29 @@
     <peripheral derivedFrom="TIMR0">
       <name>TIMR1</name>
       <baseAddress>0x40046840</baseAddress>
+      <interrupt>
+        <name>TIMR1</name>
+        <description>TIMR1 global interrupt</description>
+        <value>3</value>
+      </interrupt>
     </peripheral>
     <peripheral derivedFrom="TIMR0">
       <name>TIMR2</name>
       <baseAddress>0x40046880</baseAddress>
+      <interrupt>
+        <name>TIMER2</name>
+        <description>TIMER2 global interrupt</description>
+        <value>20</value>
+      </interrupt>
     </peripheral>
     <peripheral derivedFrom="TIMR0">
       <name>TIMR3</name>
       <baseAddress>0x400468C0</baseAddress>
+      <interrupt>
+        <name>TIMER3</name>
+        <description>TIMER3 global interrupt</description>
+        <value>22</value>
+      </interrupt>
     </peripheral>
     <peripheral derivedFrom="TIMR0">
       <name>TIMR4</name>
@@ -3987,6 +4012,16 @@
         <size>0x000044</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>HALL0</name>
+        <description>HALL0 global interrupt</description>
+        <value>12</value>
+      </interrupt>
+      <interrupt>
+        <name>HALL1</name>
+        <description>HALL1 global interrupt</description>
+        <value>28</value>
+      </interrupt>
       <registers>
         <register>
           <name>HALLIE</name>
@@ -4241,10 +4276,20 @@
     <peripheral derivedFrom="TIMR0">
       <name>BTIMR0</name>
       <baseAddress>0x40048800</baseAddress>
+      <interrupt>
+        <name>BTIMER0</name>
+        <description>BTIMER0 global interrupt</description>
+        <value>11</value>
+      </interrupt>
     </peripheral>
     <peripheral derivedFrom="TIMR0">
       <name>BTIMR1</name>
       <baseAddress>0x40048840</baseAddress>
+      <interrupt>
+        <name>BTIMER1</name>
+        <description>BTIMER1 global interrupt</description>
+        <value>26</value>
+      </interrupt>
     </peripheral>
     <peripheral derivedFrom="TIMR0">
       <name>BTIMR2</name>
@@ -4300,6 +4345,11 @@
         <size>0x000020</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>UART0</name>
+        <description>UART0 global interrupt</description>
+        <value>0</value>
+      </interrupt>
       <registers>
         <register>
           <name>DATA</name>
@@ -4757,14 +4807,29 @@
     <peripheral derivedFrom="UART0">
       <name>UART1</name>
       <baseAddress>0x40042800</baseAddress>
+      <interrupt>
+        <name>UART1</name>
+        <description>UART1 global interrupt</description>
+        <value>1</value>
+      </interrupt>
     </peripheral>
     <peripheral derivedFrom="UART0">
       <name>UART2</name>
       <baseAddress>0x40043000</baseAddress>
+      <interrupt>
+        <name>UART2</name>
+        <description>UART2 global interrupt</description>
+        <value>8</value>
+      </interrupt>
     </peripheral>
     <peripheral derivedFrom="UART0">
       <name>UART3</name>
       <baseAddress>0x40043800</baseAddress>
+      <interrupt>
+        <name>UART3</name>
+        <description>UART3 global interrupt</description>
+        <value>21</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>SPI0</name>
@@ -4776,6 +4841,11 @@
         <size>0x00001C</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>SPI0</name>
+        <description>SPI0 global interrupt</description>
+        <value>5</value>
+      </interrupt>
       <registers>
         <register>
           <name>CTRL</name>
@@ -5263,6 +5333,11 @@
     <peripheral derivedFrom="SPI0">
       <name>SPI1</name>
       <baseAddress>0x40044800</baseAddress>
+      <interrupt>
+        <name>SPI1</name>
+        <description>SPI1 global interrupt</description>
+        <value>17</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>I2C0</name>
@@ -5274,6 +5349,11 @@
         <size>0x000038</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>I2C0</name>
+        <description>I2C0 global interrupt</description>
+        <value>15</value>
+      </interrupt>
       <registers>
         <register>
           <name>CR</name>
@@ -5704,6 +5784,11 @@
         <size>0x0000F4</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>SARADC0</name>
+        <description>SARADC0 global interrupt</description>
+        <value>10</value>
+      </interrupt>
       <registers>
         <register>
           <name>CR</name>
@@ -6768,6 +6853,11 @@
     <peripheral derivedFrom="ADC0">
       <name>ADC1</name>
       <baseAddress>0x40049800</baseAddress>
+      <interrupt>
+        <name>SARADC1</name>
+        <description>SARADC1 global interrupt</description>
+        <value>23</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>PWM0</name>
@@ -6779,6 +6869,11 @@
         <size>0x000080</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>PWM_CH0</name>
+        <description>PWM_CH0 global interrupt</description>
+        <value>6</value>
+      </interrupt>
       <registers>
         <register>
           <name>CR</name>
@@ -7404,18 +7499,38 @@
     <peripheral derivedFrom="PWM0">
       <name>PWM1</name>
       <baseAddress>0x40046080</baseAddress>
+      <interrupt>
+        <name>PWM_CH1</name>
+        <description>PWM_CH1 global interrupt</description>
+        <value>9</value>
+      </interrupt>
     </peripheral>
     <peripheral derivedFrom="PWM0">
       <name>PWM2</name>
       <baseAddress>0x40046100</baseAddress>
+      <interrupt>
+        <name>PWM_CH2</name>
+        <description>PWM_CH2 global interrupt</description>
+        <value>13</value>
+      </interrupt>
     </peripheral>
     <peripheral derivedFrom="PWM0">
       <name>PWM3</name>
       <baseAddress>0x40046180</baseAddress>
+      <interrupt>
+        <name>PWM_CH3</name>
+        <description>PWM_CH3 global interrupt</description>
+        <value>19</value>
+      </interrupt>
     </peripheral>
     <peripheral derivedFrom="PWM0">
       <name>PWM4</name>
       <baseAddress>0x40046200</baseAddress>
+      <interrupt>
+        <name>PWM_CH4</name>
+        <description>PWM_CH4 global interrupt</description>
+        <value>27</value>
+      </interrupt>
     </peripheral>
     <peripheral>
       <name>PWMG</name>
@@ -7427,6 +7542,11 @@
         <size>0x000028</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>PWM_HALT</name>
+        <description>PWM_HALT global interrupt</description>
+        <value>14</value>
+      </interrupt>
       <registers>
         <register>
           <name>START</name>
@@ -7893,6 +8013,11 @@
         <size>0x0003C0</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>CAN0</name>
+        <description>CAN0 global interrupt</description>
+        <value>16</value>
+      </interrupt>
       <registers>
         <register>
           <name>CR</name>
@@ -12158,6 +12283,11 @@
         <size>0x000140</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>DMA</name>
+        <description>DMA global interrupt</description>
+        <value>4</value>
+      </interrupt>
       <registers>
         <register>
           <name>EN</name>
@@ -14220,6 +14350,11 @@
         <size>0x000020</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>CORDIC</name>
+        <description>CORDIC global interrupt</description>
+        <value>25</value>
+      </interrupt>
       <registers>
         <register>
           <name>CMD</name>
@@ -14586,6 +14721,11 @@
         <size>0x000034</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>RTC_BASE</name>
+        <description>RTC_BASE global interrupt</description>
+        <value>18</value>
+      </interrupt>
       <registers>
         <register>
           <name>MINSEC</name>
@@ -14963,6 +15103,11 @@
         <size>0x000014</size>
         <usage>registers</usage>
       </addressBlock>
+      <interrupt>
+        <name>WDT</name>
+        <description>WDT global interrupt</description>
+        <value>7</value>
+      </interrupt>
       <registers>
         <register>
           <name>RSTVAL</name>

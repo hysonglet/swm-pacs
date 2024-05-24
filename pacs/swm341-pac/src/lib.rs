@@ -33,7 +33,37 @@ use generic::*;
 #[doc = r"Common register and bit access and modify traits"]
 pub mod generic;
 #[cfg(feature = "rt")]
-extern "C" {}
+extern "C" {
+    fn UART0();
+    fn UART1();
+    fn TIMR0();
+    fn TIMR1();
+    fn DMA();
+    fn SPI0();
+    fn PWM_CH0();
+    fn WDT();
+    fn UART2();
+    fn PWM_CH1();
+    fn SARADC0();
+    fn BTIMER0();
+    fn HALL0();
+    fn PWM_CH2();
+    fn PWM_HALT();
+    fn I2C0();
+    fn CAN0();
+    fn SPI1();
+    fn RTC_BASE();
+    fn PWM_CH3();
+    fn TIMER2();
+    fn UART3();
+    fn TIMER3();
+    fn SARADC1();
+    fn BOD();
+    fn CORDIC();
+    fn BTIMER1();
+    fn PWM_CH4();
+    fn HALL1();
+}
 #[doc(hidden)]
 pub union Vector {
     _handler: unsafe extern "C" fn(),
@@ -43,14 +73,104 @@ pub union Vector {
 #[doc(hidden)]
 #[link_section = ".vector_table.interrupts"]
 #[no_mangle]
-pub static __INTERRUPTS: [Vector; 0] = [];
+pub static __INTERRUPTS: [Vector; 29] = [
+    Vector { _handler: UART0 },
+    Vector { _handler: UART1 },
+    Vector { _handler: TIMR0 },
+    Vector { _handler: TIMR1 },
+    Vector { _handler: DMA },
+    Vector { _handler: SPI0 },
+    Vector { _handler: PWM_CH0 },
+    Vector { _handler: WDT },
+    Vector { _handler: UART2 },
+    Vector { _handler: PWM_CH1 },
+    Vector { _handler: SARADC0 },
+    Vector { _handler: BTIMER0 },
+    Vector { _handler: HALL0 },
+    Vector { _handler: PWM_CH2 },
+    Vector { _handler: PWM_HALT },
+    Vector { _handler: I2C0 },
+    Vector { _handler: CAN0 },
+    Vector { _handler: SPI1 },
+    Vector { _handler: RTC_BASE },
+    Vector { _handler: PWM_CH3 },
+    Vector { _handler: TIMER2 },
+    Vector { _handler: UART3 },
+    Vector { _handler: TIMER3 },
+    Vector { _handler: SARADC1 },
+    Vector { _handler: BOD },
+    Vector { _handler: CORDIC },
+    Vector { _handler: BTIMER1 },
+    Vector { _handler: PWM_CH4 },
+    Vector { _handler: HALL1 },
+];
 #[doc = r"Enumeration of all the interrupts."]
 #[derive(Copy, Clone, Debug, PartialEq, Eq)]
-pub enum Interrupt {}
+#[repr(u16)]
+pub enum Interrupt {
+    #[doc = "0 - UART0 global interrupt"]
+    UART0 = 0,
+    #[doc = "1 - UART1 global interrupt"]
+    UART1 = 1,
+    #[doc = "2 - TIMR0 global interrupt"]
+    TIMR0 = 2,
+    #[doc = "3 - TIMR1 global interrupt"]
+    TIMR1 = 3,
+    #[doc = "4 - DMA global interrupt"]
+    DMA = 4,
+    #[doc = "5 - SPI0 global interrupt"]
+    SPI0 = 5,
+    #[doc = "6 - PWM_CH0 global interrupt"]
+    PWM_CH0 = 6,
+    #[doc = "7 - WDT global interrupt"]
+    WDT = 7,
+    #[doc = "8 - UART2 global interrupt"]
+    UART2 = 8,
+    #[doc = "9 - PWM_CH1 global interrupt"]
+    PWM_CH1 = 9,
+    #[doc = "10 - SARADC0 global interrupt"]
+    SARADC0 = 10,
+    #[doc = "11 - BTIMER0 global interrupt"]
+    BTIMER0 = 11,
+    #[doc = "12 - HALL0 global interrupt"]
+    HALL0 = 12,
+    #[doc = "13 - PWM_CH2 global interrupt"]
+    PWM_CH2 = 13,
+    #[doc = "14 - PWM_HALT global interrupt"]
+    PWM_HALT = 14,
+    #[doc = "15 - I2C0 global interrupt"]
+    I2C0 = 15,
+    #[doc = "16 - CAN0 global interrupt"]
+    CAN0 = 16,
+    #[doc = "17 - SPI1 global interrupt"]
+    SPI1 = 17,
+    #[doc = "18 - RTC_BASE global interrupt"]
+    RTC_BASE = 18,
+    #[doc = "19 - PWM_CH3 global interrupt"]
+    PWM_CH3 = 19,
+    #[doc = "20 - TIMER2 global interrupt"]
+    TIMER2 = 20,
+    #[doc = "21 - UART3 global interrupt"]
+    UART3 = 21,
+    #[doc = "22 - TIMER3 global interrupt"]
+    TIMER3 = 22,
+    #[doc = "23 - SARADC1 global interrupt"]
+    SARADC1 = 23,
+    #[doc = "24 - BOD global interrupt"]
+    BOD = 24,
+    #[doc = "25 - CORDIC global interrupt"]
+    CORDIC = 25,
+    #[doc = "26 - BTIMER1 global interrupt"]
+    BTIMER1 = 26,
+    #[doc = "27 - PWM_CH4 global interrupt"]
+    PWM_CH4 = 27,
+    #[doc = "28 - HALL1 global interrupt"]
+    HALL1 = 28,
+}
 unsafe impl cortex_m::interrupt::InterruptNumber for Interrupt {
     #[inline(always)]
     fn number(self) -> u16 {
-        match self {}
+        self as u16
     }
 }
 #[doc = "Registers group"]
